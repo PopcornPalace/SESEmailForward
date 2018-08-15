@@ -2,10 +2,7 @@
 var AWS = require('aws-sdk');
 
 
-const fromToMapping = {
-    "hugs@dgpopup.com": "support.39940.173bcb9b81defaae@helpscout.net",
-    "help@dgpopup.com": "support.39940.11bfb31ba3a46f61@helpscout.net"
-}
+const fromToMapping = JSON.parse(process.env.from_to_mapping)
 exports.handler = function(event, context) {
     var msgInfo = JSON.parse(event.Records[0].Sns.Message);
     console.log(JSON.stringify(msgInfo))
